@@ -1,0 +1,181 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+
+<div class="row">
+    <div class="col-9">
+        <div class="card" style="height:  13rem;">
+            <div class="card-header">
+                เปรียบเทียบรายได้ภาษีสรรพสามิต
+            </div>
+            <div class="card-body">
+
+                <div class="row mt-3">
+
+                    <div class="col">
+                        <div class="form-group row text-right">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">
+                                เดือนที่ต้องการนำเข้า </label>
+                            <div class="col-sm-6">
+                                <!-- <input type="text" class="form-control form-control-sm" placeholder="กรุณาเลือกเดือน"> -->
+                                <select class="form-control form-control-sm" id="selectBankmain">
+                                    <option value="" selected disabled>กรุณาเลือกเดือนที่ต้องการนำเข้า
+                                    </option>
+                                    <option *ngFor="let item of monthList" [value]="item.value">
+                                        {{item.textThai}}
+                                    </option>
+                                    <!-- <option>
+                                        nothing
+                                    </option> -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group row text-right">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">
+                                ปีที่ต้องการนำเข้า </label>
+                            <div class="col-sm-6">
+                                <select class="form-control form-control-sm" id="selectBankmain">
+                                    <option value="" selected disabled>กรุณาเลือกปีที่ต้องการนำเข้า
+                                    </option>
+                                    <option>
+                                        <!-- <option *ngFor="let item of bankmain" [value]="item.bankCode"> -->
+                                        2560
+                                    </option>
+                                    <option>
+                                        2561
+                                    </option>
+                                    <option>
+                                        2562
+                                    </option>
+                                    <option>
+                                        2563
+                                    </option>
+                                    <option>
+                                        2564
+                                    </option>
+                                    <option>
+                                        2565
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-success btn-sm">
+                            <i class="fa fa-search" aria-hidden="true"></i> ตรวจสอบ
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-primary btn-sm">
+                            <i class="fa fa-download" aria-hidden="true"></i> ออกรายงาน
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col ">
+        <div class="row-6 ">
+
+            <div class="card text-center " style="height:  13rem;">
+
+                <div class="card-body text-center">
+                    <div class="container h-100">
+                        <div class="row align-items-center h-100">
+                            <div class=" mx-auto">
+                                <div class="row justify-content-center">
+                                    <div class="col-3 mt-2">
+                                        <i class="fa fa-check-square-o fa-2x mr-5" aria-hidden="true"
+                                            style="margin-left: 20px; "></i>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row"> <span class="caret mr-4"><b>อัพเดทข้อมูล
+                                                    เงินเคลื่อนไหวฝากคลังล่าสุด</b></span>
+                                        </div>
+                                        <div class="row"> <span class="caret mr-4">วันที่ 2 เดือน มิถุนายน ปี 2563 เวลา
+                                                12:01 </span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+&nbsp;
+<div class="card">
+    <div class="card-body">
+        <div class="scrollX">
+            <table id="datatable" class="table table-bordered table-striped table-sm" style="width:100%">
+                <thead class="text-center">
+
+                    <tr class="text-center">
+
+                        <th>วันที่เอกสาร
+                        </th>
+                        <th style="text-align: center!important">รหัสหน่วยงาน
+                        </th>
+                        <th style="text-align: center!important">วันที่ผ่านรายการ
+                        </th>
+                        <th style="text-align: center!important">การอ้างอิง
+                        </th>
+                        <th style="text-align: center!important">จำนวนเงิน
+                        </th>
+                        <th style="text-align: center!important">การกำหนด_1
+                        </th>
+                        <th style="text-align: center!important" class="col-4">ข้อความ
+                        </th>
+                        <th style="text-align: center!important">ศูนย์ต้นทุน_1
+                        </th>
+                        <th style="text-align: center!important">แหล่งของเงิน
+                        </th>
+                        <th style="text-align: center!important">กิจกรรมหลัก_1
+                        </th>
+                        <th style="text-align: center!important">รหัสงบประมาณ_1
+                        </th>
+                        <th style="text-align: center!important">เจ้าของเงินฝาก_1
+                        </th>
+                        <th style="text-align: center!important">บัญชีเงินฝาก_1
+                        </th>
+                        <th style="text-align: center!important">คีย์อ้างอิง1_1
+                        </th>
+                        <th style="text-align: center!important">การกำหนด_3
+                        </th>
+                        <th style="text-align: center!important">ศูนย์ต้นทุน_3
+                        </th>
+                        <th style="text-align: center!important">กิจกรรมหลัก_3
+                        </th>
+                        <th style="text-align: center!important">รหัสงบประมาณ_3
+                        </th>
+                        <th style="text-align: center!important">เจ้าของเงินฝาก_3
+                        </th>
+                        <th style="text-align: center!important">บัญชีเงินฝาก_3
+                        </th>
+                        <th style="text-align: center!important">คีย์อ้างอิง1_3
+                        </th>
+                        <th style="text-align: center!important">บัญชีแยกประเภท_5
+                        </th>
+                        <th style="text-align: center!important">รหัสหน่วยงาน_5
+                        </th>
+                        <th style="text-align: center!important">ศูนย์ต้นทุน_5
+                        </th>
+                        <th style="text-align: center!important">กิจกรรมหลัก_5
+                        </th>
+                        <th style="text-align: center!important">บัญชีแยกประเภท_6
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>

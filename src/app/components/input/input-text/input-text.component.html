@@ -1,0 +1,23 @@
+<!-- create by frame -->
+
+<!-- <div class="mb-3">
+    <div class="input-group is-invalid form-group">
+
+        <div class="input-group-prepend">
+            <span class="row" style="background-color:#D9DCDD;width: 48px;" class="input-group-text" id="validatedInputGroupPrepend">
+                        <i class="fa fa-{{iconset}} fa-lg"></i>
+                        
+            </span>
+        </div>
+        <input type="text" (input)="onChange($event.target.value)" class="form-control inputText" [value]="value" required />
+        <span class="floating-label">&nbsp; <span *ngIf="varidate" class="text-danger">&nbsp;*</span> {{wording}} &nbsp;</span>
+    </div>
+</div> -->
+
+
+<div class="form-group">
+    <label style="margin-bottom: 0px;color: #626566;">{{wording}} <span *ngIf="varidate"
+            class="text-danger">&nbsp;*</span> </label>
+    <input [id]="id" [readonly]="readonly" style="height: 32px;" type="{{type}}" style="font-size: 13px;    border-radius: 0.4rem;" (input)="onChange($event.target.value)" class="form-control textinputSet" [value]="value" class="form-control" id="exampleFormControlInput1"
+        placeholder="{{placeholder}}" [disabled]="disabled">
+</div>

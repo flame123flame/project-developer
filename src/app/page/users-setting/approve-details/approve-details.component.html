@@ -1,0 +1,122 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                สิทธิ์การใช้งาน
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <!-- <button-back wording=" "></button-back>
+                    <button-save wording=" "></button-save> -->
+                    <div class="col-6 text-left">
+                        <button-back routerLink="/usersetting/approve"></button-back>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button-save (click)="onModalSave()"></button-save>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">รหัส <a
+                                style="color:red">*</a>:</label>
+                            <div class="col-sm-8">
+                                <input [(ngModel)]="form.roleCode" type="text" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm text-right">ประเภท <a
+                                style="color:red">*</a>:</label>
+                            <div class="col-sm-8">
+                                <input [(ngModel)]="form.roleName" type="text" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">คำอธิบาย :</label>
+                            <div class="col-sm-8">
+                                <input [(ngModel)]="form.roleDescription" type="text" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <table class="table text-center table-sm table-bordered ">
+                    <thead>
+                        <tr style="background-color: #8D9796">
+                            <!-- <th rowspan="2" class="text-center ">หัวข้อเมนู</th> -->
+                            <th rowspan="2" class="text-center " style="color: #fff;">รายการเมนู</th>
+                            <th colspan="4" class="text-center " style="color: #fff;">สถานะที่ใช้งาน</th>
+                        </tr>
+                        <tr class="text-center table-active">
+                            <th class="text-center" style="background-color:#2694D3;color: #fff;">
+                                <i class="fa fa-eye" aria-hidden="true"></i> มองเห็นเมนู
+                            </th>
+                            <th class="text-center" style="background-color:#29C275;color: #fff;">
+                                <i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล
+                            </th>
+                            <th class="text-center" style="background-color:#FFC300;color: #fff;">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> แก้ไข
+                            </th>
+                            <th class="text-center" style="background-color:#E06A4D;color: #fff;">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i> ลบ
+                            </th>
+                        </tr>
+                    </thead>
+                    <ng-container>
+                        <tbody *ngFor="let item of listPageGroup; ">
+                            <tr style="background-color: #DEE3E3;">
+
+                                <td colspan="5" class="text-left" style="font-size: 15px;">
+                                    {{item.pageGroupName}} &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+
+                            <ng-container>
+
+                                <tr *ngFor="let pageDtl of item.listDetail; let inx = index" style="background-color:#EBF8FC;">
+
+                                    <td class="text-left" style="color:#676B6B">&nbsp;&nbsp;-&nbsp;{{pageDtl.pageDtlName}}</td>
+                                    <th>
+                                        <ui-switch color="#2694D3" [(ngModel)]="pageDtl.readMark" size="small"></ui-switch>
+                                    </th>
+                                    <th>
+                                        <ui-switch color="#29C275" [(ngModel)]="pageDtl.writeMark" size="small"></ui-switch>
+                                    </th>
+                                    <th>
+                                        <ui-switch color="#FFC300" [(ngModel)]="pageDtl.editMark" size="small"></ui-switch>
+                                    </th>
+                                    <th>
+                                        <ui-switch color="#E06A4D" [(ngModel)]="pageDtl.approveMark" size="small"></ui-switch>
+                                    </th>
+
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </ng-container>
+
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- saveModal -->
+<modal-confirm #saveModal (onConfirm)="onClickSave()">
+</modal-confirm>
+<!-- successModal -->
+<modal-success #successModal>
+</modal-success>
+<!-- errorModal -->
+<modal-error #errorModal>
+</modal-error>

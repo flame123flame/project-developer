@@ -1,0 +1,37 @@
+  
+a.head-card:hover h6{
+    color:#838789;
+}
+a.head-card:hover .card{
+    /* background-color:#B9DBE0 !important; */
+    background:  linear-gradient(to top, #b3d5f1,#9dc7e9)!important;
+  
+    border: 1px solid #8ec7e4;
+}
+.colors{
+    color:#838789;
+    font-size: 50px;
+}
+.fa-check-square-o{
+    color: #2C93D1;
+}
+
+.fa-file-o{
+    color: #2C93D1;
+}
+
+.textSize {
+    font-size: 14px !important;
+}
+input[type="text"]
+{
+    font-size:12px;
+}
+label{
+    font-size:13px;
+}
+.test{
+    margin-top: 6px;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}

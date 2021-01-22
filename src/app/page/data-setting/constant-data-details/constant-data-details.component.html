@@ -1,0 +1,52 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">รายการค่าคงที่</div>
+        <div class="card-body">
+
+    <!-- <hr> -->
+    <form [formGroup]="formAddConstant">
+        <div class="row">
+            <div class="col-6 text-left">
+                <button-back routerLink="/datasetting/constant"></button-back>
+            </div>
+            <div class="col-6 text-right">
+                <button-save *ngIf="!buttomedit" (click)="onClickEdit()"></button-save>
+                <button-save *ngIf="buttomedit" (click)="onClickSave()"></button-save>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-4 text-right ">
+                <label class="col-sm-4 col-form-label col-form-label-sm text-right">คีย์ค่าคงที่  <a style="color: red;">*</a>:</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control form-control-sm" formControlName="constantKey" placeholder="กรอกข้อมูล ">
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-4 text-right ">
+                <label class="col-sm-4 col-form-label col-form-label-sm text-right">คำอธิบายค่าคงที่  <a style="color: red;">*</a>:</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control form-control-sm" formControlName="constantValue" placeholder="กรอกข้อมูล">
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- saveModal -->
+<modal-confirm #saveModal (onConfirm)="saveFormAddConstant()">
+</modal-confirm>
+<modal-confirm #editModal (onConfirm)="editConstant()">
+</modal-confirm>
+<!-- successModal -->
+<modal-success #successModal>
+</modal-success>
+<!-- errorModal -->
+<modal-error #errorModal>
+</modal-error>

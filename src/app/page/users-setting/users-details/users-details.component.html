@@ -1,0 +1,125 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card">
+    <div class="card-header">
+        สร้างผู้ใช้งาน
+    </div>
+
+    <div class="card-body">
+        <div class="row text-right">
+            <div class="col-12 text-right">
+                <button-save (click)="onSave()"></button-save>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2"> </div>
+            <div class="col-10">
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">ชื่อผู้ใช้งาน <span
+                            style="color:red">*</span>
+                        :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="userName">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">รหัสผ่าน <span
+                            style="color:red">*</span>
+                        :</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control form-control-sm" [(ngModel)]="password">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">ยืนยันรหัสผ่าน
+                         <span style="color:red">*</span>
+                        :</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control form-control-sm" [(ngModel)]="confirmPassword">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label  text-right">
+                        สิทธิ์การใช้งานระบบ <span style="color:red">*</span>
+                        :</label>
+                    <div class="col-8">
+                        <!-- {{roleCode}} -->
+                        <select class="form-control form-control-sm" id="selectBankmain" [(ngModel)]="roleCode">
+                            <option value='' selected disabled>กรุณาเลือกสิทธิ์
+                            </option>
+                            <option *ngFor="let item of role" [value]="item.roleCode" >
+                                {{item.roleCode}}
+                                
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm  text-right">ตำแหน่ง <span
+                            style="color:red">*</span>
+                        :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="position">
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">ชื่อ <span
+                            style="color:red">*</span>
+                        :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="firstNameTh">
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">นามสกุล <span
+                            style="color:red">*</span>
+                        :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="lastNameTh">
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">อีเมล
+                        :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">เบอร์โทร 
+                        :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="phoneNumber">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm text-right">รายละเอียดเพิ่มเติม 
+                        :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="remark">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- successModal -->
+<modal-success #successModal>
+</modal-success>
+<!-- errorModal -->
+<modal-error #errorModal>
+</modal-error>
+
+<modal-password #modalpassword>
+</modal-password>
+
+
+<modal-confirm #saveModal (onConfirm)="saveFormAddUser()">
+</modal-confirm>

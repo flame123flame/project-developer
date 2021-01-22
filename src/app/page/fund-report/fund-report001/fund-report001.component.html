@@ -1,0 +1,203 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header">
+                ออกรายงานสรุปยอดการนำส่งเงินบำรุงองค์กรฯ
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row text-right">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">องค์กรฯ</label>
+                            <div class="col-sm-6">
+
+                                <!-- (change)="onSelectBankmain($event)" -->
+                                <select class="form-control form-control-sm" id="selectBankmain">
+                                    <option value="" selected disabled>กรุณาเลือกองค์กรฯ
+                                    </option>
+                                    <option>
+                                        กองทุนไทยพีบีเอส
+                                    </option>
+                                    <option>กองทุนผู้สูงอายุ</option>
+                                    <option>กองทุนกีฬา</option>
+                                    <option>กองทุน สสส.</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group row text-right">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">
+                                รหัสเงินฝากคลัง </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="รหัสเงินฝากคลัง">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row text-right">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">
+                                ประจำเดือน </label>
+                            <div class="col-sm-6">
+                                <select class="form-control form-control-sm">
+                                    <option value="" selected disabled>ประจำเดือน
+                                    </option>
+                                    <option *ngFor="let item of monthList" [value]="item.value">
+                                        {{item.textThai}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group row text-right">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">
+                                ปีงบประมาณ </label>
+                            <div class="col-sm-6">
+                                <select class="form-control form-control-sm" id="selectBankmain">
+                                    <option value="" selected disabled>กรุณาเลือกรายการบัญชี
+                                    </option>
+                                    <option>
+                                        <!-- <option *ngFor="let item of bankmain" [value]="item.bankCode"> -->
+                                        2560
+                                    </option>
+                                    <option>
+                                        2561
+                                    </option>
+                                    <option>
+                                        2562
+                                    </option>
+                                    <option>
+                                        2563
+                                    </option>
+                                    <option>
+                                        2564
+                                    </option>
+                                    <option>
+                                        2565
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-success btn-sm">
+                            <i class="fa fa-search" aria-hidden="true"></i> ตรวจสอบ
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm">
+                            <i class="fa fa-download" aria-hidden="true"></i> ออกรายงาน
+                        </button>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row-2">
+            <div class="card" style="height: 130px;">
+
+                <div class="card-body text-center">
+                    <div class="container h-100">
+                        <div class="row align-items-center h-100">
+                            <div class=" mx-auto">
+                                <div class="row justify-content-center">
+                                    <div class="col-3 mt-2">
+                                        <i class="fa fa-check-square-o fa-2x mr-5" aria-hidden="true" style="margin-left: 20px; "></i>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row"> <span class="caret mr-4"><b>อัพเดตข้อมูลจากระบบงานรายได้ล่าสุด</b></span>
+                                        </div>
+                                        <div class="row"> <span class="caret mr-4">วันที่ 2 เดือน มิถุนายน ปี 2563 เวลา
+                                                12:01 </span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-2 " style="margin-top: 12px;">
+            <div class="row">
+                <div class="col">
+                    <a class="head-card" (click)="clickShowTable01()">
+                        <div class=" card shadow" style="background-color:#daf1f9;">
+                            <div class="card-body text-center">
+                                <span class="caret">รายละเอียด</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="head-card" (click)="clickShowTable02()">
+                        <div class=" card shadow" style="background-color:#daf1f9;">
+                            <div class="card-body text-center">
+                                <span class="caret">ผลรวม</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+&nbsp;
+<div class="card" *ngIf="showtable01">
+    <div class="card-header">
+        {{ textH }}
+    </div>
+    <div class="card-body">
+        <table id="datatable01" class="table table-striped table-sm table-bordered ">
+            <thead>
+                <tr class="text-center">
+                    <th>วันที่เอกสาร</th>
+                    <th>การอ้างอิง</th>
+                    <th>ปภ</th>
+                    <th>การอ้างอิง</th>
+                    <th>การกำหนด</th>
+                    <th>หน่วยเบิกจ่าย</th>
+                    <th>เดบิต</th>
+                    <th>เครดิต</th>
+                    <th>จำนวนเงินขอเบิก</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="card" *ngIf="showtable02">
+    <div class="card-header">
+        {{ textH }}
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-sm table-bordered " id="datatable02">
+            <thead>
+                <tr class="text-center">
+                    <th>ลำดับ</th>
+                    <th>ปภ</th>
+                    <th>การกำหนด</th>
+                    <th>เดบิต</th>
+                    <th>เครดิต</th>
+                    <th>จำนวนเงินขอเบิก</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>

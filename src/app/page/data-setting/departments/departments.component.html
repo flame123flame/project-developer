@@ -1,0 +1,117 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">รหัสและชื่อแผนก/ศูนย์ต้นทุน</div>
+        <div class="card-body">
+            <div class="col-12 text-right"><button-add [status]="buttonadd" (click)="addData()"></button-add></div>
+            <ng-container *ngIf="show; else elseTemplate">
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <table id="datatable" class="table tree table-striped componentTable ">
+                            <thead class="text-center table-active">
+                                <tr>
+                                    <th>รหัสและชื่อแผนก/ศูนย์ต้นทุน</th>
+                                    <th>จัดการ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of departmentsListFilter; let i=index">
+                                    <td [style]="'text-align: left;cursor: pointer;'"
+                                        (click)="onToggleChange(item.masterDepartmentsCode,item.treelevel ,item.parent)">
+                                        <div [style]="'padding-left: '+((item.treelevel+1)*2)+'em;'">
+                                            <ng-container *ngIf="displayIcon(item.masterDepartmentsCode)">
+                                                <i *ngIf="!toggleIcon(item.masterDepartmentsCode)" class="fa fa-plus mr-1"
+                                                    aria-hidden="true"></i>
+                                                <i *ngIf="toggleIcon(item.masterDepartmentsCode)" class="fa fa-minus mr-1"
+                                                    aria-hidden="true"></i>
+                                            </ng-container>
+                                            {{item.masterDepartmentsCode}} : {{item.name}}
+                                        </div>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <button type="button" class="btn btn-info btn-sm" style="border-radius: 8px;"
+                                        (click)="Details(item.masterDepartmentsCode)"><i class="fa fa-indent"
+                                            aria-hidden="true" tooltip="เพิ่มสถานที่"></i>
+                                        </button>
+                                        <button-edit [status]="editMark" (click)="editData(item.masterDepartmentsCode)"></button-edit>
+                                        <button-delete [status]="approveMark" (click)="deleteData(item.masterDepartmentsCode)"></button-delete>
+            
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #elseTemplate>
+            </ng-template>
+
+            <modal-custom #modalCustom [clickBackDropToClose]='false' (onSave)='validateData()' [check]='check'>
+                <div body>
+                    <div class="modal-header mb-3">
+                        <h4>{{header}}</h4>
+                    </div>
+                    <div class="ml-4 mr-4">
+                        <div class="d-flex flex-column  w-auto">
+                            <input-text [disabled]="editonly" value="{{itemSave.masterDepartmentsCode}}"
+                            [(ngModel)]='itemSave.masterDepartmentsCode' varidate="true" wording="รหัส (Code)"
+                            iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.name}}" [(ngModel)]='itemSave.name' varidate="true"
+                            wording="ชื่อของหน่วยงาน" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.area}}" [(ngModel)]='itemSave.area' varidate="true"
+                            wording="พิ้นที่ความรับผิดชอบ" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.address}}" [(ngModel)]='itemSave.address'
+                            wording="เลขที่ตั้ง/อาคาร" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.road}}" [(ngModel)]='itemSave.road'
+                            wording="ถนน" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.village}}" [(ngModel)]='itemSave.village'
+                            wording="หมู่บ้าน" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.parish}}" [(ngModel)]='itemSave.parish' varidate="true"
+                            wording="ตำบล" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.district}}" [(ngModel)]='itemSave.district' varidate="true"
+                            wording="อำเภอ" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.province}}" [(ngModel)]='itemSave.province' varidate="true"
+                            wording="จังหวัด" iconset="pencil-square">
+                        </input-text>
+                        <input-text [disabled]="readonly" value="{{itemSave.postalCode}}" [(ngModel)]='itemSave.postalCode' varidate="true"
+                            wording="รหัสไปรษณีย์" iconset="pencil-square">
+                        </input-text>
+                    
+                        
+                            <label style="color: #626566;" for="exampleFormControlSelect1">PARENT<span
+                                    class="text-danger">&nbsp;*</span> </label>
+                                <select [disabled]="readonly" [(ngModel)]="itemSave.parent" class="form-control"
+                                    id="exampleFormControlSelect1" style="margin-top: -8px;"
+                                    (change)="findTreelevel($event.target.value)">
+                                    <option value="" selected disabled>กรุณาเลือก PARENT</option>
+                                    <option value="PARENT">N/A</option>
+                                    <option *ngFor="let item of departmentsList" [value]="item.masterDepartmentsCode">
+                                        {{item.masterDepartmentsCode}} - {{item.name}}
+                                    </option>
+                                </select>
+                        </div>
+                    </div>
+                </div>
+            </modal-custom>
+        </div>
+    </div>
+</div>
+</div>
+
+<modal-success #successModal>
+</modal-success>
+
+<modal-error #errorModal>
+</modal-error>
+
+<modal-confirm #deleteModal (onConfirm)="delete()">
+</modal-confirm>

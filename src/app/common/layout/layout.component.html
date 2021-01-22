@@ -1,0 +1,191 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" class="shadow">
+        <div class="sidebar-header text-center " style="  background-color: #1983db !important;height:65px;">
+
+            <!-- โลโก้บนสไลด์บาร์ซ้ายมือบนหน้าจอ -->
+            <div class="row" style="height: 80px;">
+                <div class="col-12 text-left">
+                    <img class="logo" src="assets/img/logo.png" alt="logo" style="width: 200px;">
+                </div>
+
+            </div>
+
+
+        </div>
+        <ul class="list-unstyled list-main components">
+            <div style="margin-top: 10px;"></div>
+            <li *ngIf="this.checkGroupMenu('MENU-IMPORTDATA')">
+                <a href="#" routerLink="/import/importdata001/" routerLinkActive="active"><i class="fa fa-download"></i>
+                    นำเข้าข้อมูล</a>
+            </li>
+            <li *ngIf="this.checkGroupMenu('COMPARISON-SYSTEM')">
+                <a href="#menu03" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-retweet" aria-hidden="true"></i> ระบบตรวจเปรียบเทียบ
+                </a>
+                <ul class="collapse list-unstyled" id="menu03">
+                    <li *ngIf="this.checkDtlMenu('COMPARISON-SYSTEM','RECONCILE-EXCISE-TAX-INCOME')">
+                        <a href="#" routerLink="/compare/compareincome001/" routerLinkActive="active"><i
+                                class="fa fa-circle"></i>
+                            กระทบยอดรายได้ภาษีสรรพสามิต </a>
+                    </li>
+                    <li *ngIf="this.checkDtlMenu('COMPARISON-SYSTEM','RECONCILE-FUND -NCOME')">
+                        <a href="#" routerLink="/compare/compareincome002/" routerLinkActive="active"><i
+                                class="fa fa-circle"></i>
+                            กระทบยอดรายได้กองทุน </a>
+                    </li>
+                </ul>
+            </li>
+            <li *ngIf="this.checkGroupMenu('DIFFERENCE-TRACKING-SYSTEM')">
+                <a href="#menu04" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-thumb-tack" aria-hidden="true"></i> ระบบติดตามรายการผลต่าง
+                </a>
+                <ul class="collapse list-unstyled" id="menu04">
+                    <li *ngIf="this.checkDtlMenu('DIFFERENCE-TRACKING-SYSTEM','KEEP-TRACK-INCOME-DIFFERENCES')">
+                        <a href="#" routerLink="/tracklist/tracklist001/" routerLinkActive="active"><i
+                                class="fa fa-circle"></i>
+                            ติดตามรายการผลต่างรายได้ </a>
+                    </li>
+                    <li *ngIf="this.checkDtlMenu('DIFFERENCE-TRACKING-SYSTEM','KEEP-TRACK-FUND-DIFFERENCES')">
+                        <a href="#" routerLink="/tracklist/tracklist002/" routerLinkActive="active"><i
+                                class="fa fa-circle"></i>
+                            ติดตามรายการผลต่างกองทุน </a>
+                    </li>
+                </ul>
+            </li>
+            <li *ngIf="this.checkGroupMenu('SEND-FUND-REPORTS')">
+                <a href="#" routerLink="/fundreport/fundreport001/" routerLinkActive="active"><i
+                        class="fa fa-file-text"></i>
+                    ออกรายงานส่งกองทุน</a>
+            </li>
+            <li *ngIf="this.checkGroupMenu('SUBMITTED-GFMIS-SYSTEM')">
+                <a href="#" routerLink="/generatedeliverydata/generatedeliverydata001/" routerLinkActive="active"><i
+                        class="fa fa-file-text-o"></i>
+                    รายงานนำส่งเข้าระบบ GFMIS</a>
+            </li>
+            <li *ngIf="this.checkGroupMenu('RESULTS-SUBMISSION-OF-FUNDS')">
+                <a href="#" routerLink="/datadeliveryresults/datadeliveryresults001/" routerLinkActive="active"><i
+                        class="fa fa-share-square-o"></i>
+                    ผลการนำส่งเงินกองทุน</a>
+            </li>
+            <li *ngIf="this.checkGroupMenu('USER-SETTINGS')">
+                <a href="#menu13" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-users" aria-hidden="true"></i> การตั้งค่าผู้ใช้งาน
+                </a>
+                <ul class="collapse list-unstyled" id="menu13">
+                    <li *ngIf="this.checkDtlMenu('USER-SETTINGS','USER')">
+                        <a href="#" routerLink="/usersetting/users" routerLinkActive="active" (click)="scrollToTop()"><i
+                                class="fa fa-circle"></i>
+                            ผู้ใช้งาน </a>
+                    </li>
+                    <li *ngIf="this.checkDtlMenu('USER-SETTINGS','ROLE')">
+                        <a href="#" routerLink="/usersetting/approve" routerLinkActive="active" (click)="scrollToTop()"><i
+                                class="fa fa-circle"></i>
+                            สิทธิ์การใช้งาน </a>
+                    </li>
+                    <li *ngIf="this.checkDtlMenu('USER-SETTINGS','MUNU')">
+                        <a href="#" routerLink="/usersetting/menu" routerLinkActive="active" (click)="scrollToTop()"><i
+                                class="fa fa-circle"></i>
+                            เมนู </a>
+                        <!-- หน่วยงาน -->
+                    </li>
+
+                </ul>
+            </li>
+
+            <li *ngIf="this.checkGroupMenu('DATA-SETTING')">
+                <a href="#menu14" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-cog" aria-hidden="true"></i> การตั้งค่าข้อมูล
+                </a>
+                <ul class="collapse list-unstyled" id="menu14">
+                    <li *ngIf="this.checkDtlMenu('DATA-SETTING','LOV')">
+                        <a href="#" routerLink="/datasetting/lov" routerLinkActive="active" (click)="scrollToTop()"><i
+                                class="fa fa-circle"></i>
+                            รายการข้อมูลค่าตั้งต้น</a>
+                    </li>
+                    <li *ngIf="this.checkDtlMenu('DATA-SETTING','CONSTANT')">
+                        <a href="#" routerLink="/datasetting/constant" routerLinkActive="active" (click)="scrollToTop()"><i class="fa fa-circle"></i>
+                            รายการค่าคงที่</a>
+                    </li>
+                    <li *ngIf="this.checkDtlMenu('DATA-SETTING','DEPARTMENTS')">
+                        <a href="#" routerLink="/datasetting/departments" routerLinkActive="active" (click)="scrollToTop()"><i class="fa fa-circle"></i>
+                            ชื่อแผนก/ศูนย์ต้นทุน</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light  colorNav p-3" style="box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;">
+            <div class="container-fluid ">
+                <i class="fa fa-bars" aria-hidden="true" id="sidebarCollapseNew" style="color:aliceblue; cursor: pointer;"></i>
+                <h6 class="text-left mt-2 " style="color:aliceblue;margin-inline-end: auto;
+                margin-left: 10px;">ระบบบริหารจัดการข้อมูลการจัดเก็บและการส่งเงินบำรุงกองทุน/องค์การ</h6>
+
+
+                <ul class="nav navbar-nav navbar-right">
+
+
+                    <div style="margin-top: 4px;" class="text-right mr-3">
+                        <!-- <i class="fa fa-user-circle fa-2x mr-2 caret"></i> -->
+                        <img src="./../../../assets/img/pngtree-user-vector-avatar-png-image_1541962.jpg" class="caret" style="width:12%;    border-radius: 5px;">
+                    </div>
+
+
+                    <div>
+                        <span class="caret"> {{user.firstNameTh}} &nbsp;{{user.lastNameTh}}</span><br>
+                        <span class="caret"> {{user.position}} </span>
+                    </div>
+
+                    <li data-toggle="modal" data-target="#logout" style="margin-left: 30px; margin-top: 11px;cursor: pointer;">
+                        <i style="color: #fff" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="alert alert-success alert-dismissible fade show" style="display: none" id="alert-success">
+                <a class="close" onclick="$('#alert-success').hide()">×</a>
+                <strong>Warning!</strong> Best check yo self, you're not looking too good.
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" style="display: none" id="alert-danger">
+                <a class="close" onclick="$('#alert-danger').hide()">×</a>
+                <strong>Danger!</strong> fail process.
+            </div>
+            <div class="alert alert-warning alert-dismissible fade show" style="display: none" id="alert-warning">
+                <a class="close" onclick="$('#alert-warning').hide()">×</a>
+                <strong>Warning!</strong> Warning process.
+            </div>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="logout" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content text-center">
+                    <div class="modal-header ">
+                        <h5 class="modal-title" id="logout">ยืนยันการออกจากระบบ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="img_wrp text-center">
+                        <img src="./../../../assets/img/logout.png" class="iange">
+                    </div>
+                    <div class="modal-footer">
+                        <div class=" row text-center">
+                            <div class="col" style="align-self: center;">
+                                <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">ยกเลิก</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="logout()">ยืนยัน</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

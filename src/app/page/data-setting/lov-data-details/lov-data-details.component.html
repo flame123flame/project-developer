@@ -1,0 +1,92 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">รายการข้อมูลค่าตั้งต้น</div>
+        <div class="card-body">
+
+    <!-- <hr> -->
+    <form [formGroup]="formAdd">
+        <div class="row">
+            <div class="col-6 text-left">
+                <button-back routerLink="/datasetting/lov"></button-back>
+            </div>
+            <div class="col-6 text-right">
+                <button-save (click)="onClickSave()"></button-save>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-4 text-right ">
+                <label class="col-sm-4 col-form-label col-form-label-sm text-right">คีย์ค่าตั้งต้น  <a style="color: red;">*</a>:</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control form-control-sm" id="lov1" formControlName="lovKey" placeholder="กรอกข้อมูล">
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-4 text-right ">
+                <label class="col-sm-4 col-form-label col-form-label-sm text-right">คำอธิบาย  <a style="color: red;">*</a>:</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control form-control-sm" id="lov2" formControlName="lovDescription" placeholder="กรอกข้อมูล">
+            </div>
+        </div>
+        <br>
+        <div class="row mt-1 justify-content-center">
+            <div class="col-md-12 text-right">
+                <button-add [status]="true" (click)="addlistDetailForm()"></button-add>
+            </div>
+        </div>
+    </form>
+
+    <div class="row mt-3 justify-content-center">
+        <div class="col-md-12">
+            <table id="datatable" class="table table-striped table-sm table-bordered">
+                <thead class="text-center">
+                    <tr class="table-active">
+                        <th>ลำดับที่</th>
+                        <th>คีย์ค่าตั้งตั้น</th>
+                        <th>คำอธิบายตั้งตั้นไทย 1</th>
+                        <th>คำอธิบายตั้งตั้นไทย 2</th>
+                        <th>คำอธิบายตั้งตั้นอังกฤษ 1</th>
+                        <th>คำอธิบายตั้งตั้นอังกฤษ 2</th>
+                        <th>ลำดับกรอกมือ</th>
+                        <th>จัดการ</th>
+                    </tr>
+                </thead>
+                <ng-container>
+                    <tbody>
+                        <tr *ngFor="let item of listDetail; let i=index">
+                            <td style="text-align: center">{{i + 1}}</td>
+                            <td><input type="text" class="form-control form-control-sm form-control form-control-sm-sm" [(ngModel)]="listDetail[i].lovCode"></td>
+                            <td><input type="text" class="form-control form-control-sm form-control form-control-sm-sm" [(ngModel)]="listDetail[i].valueTh1"></td>
+                            <td><input type="text" class="form-control form-control-sm form-control form-control-sm-sm" [(ngModel)]="listDetail[i].valueTh2"></td>
+                            <td><input type="text" class="form-control form-control-sm form-control form-control-sm-sm" [(ngModel)]="listDetail[i].valueEn1"></td>
+                            <td><input type="text" class="form-control form-control-sm form-control form-control-sm-sm" [(ngModel)]="listDetail[i].valueEn2"></td>
+                            <td><input type="number" class="form-control form-control-sm form-control form-control-sm-sm" [(ngModel)]="listDetail[i].seq"></td>
+                            <td align="center">
+                                <button type="button" style="border-radius: 8px;" (click)="popDetails(i)" class="btn btn-sm btn-danger delete">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- saveModal -->
+<modal-confirm #saveModal (onConfirm)="onSave()">
+</modal-confirm>
+<!-- successModal -->
+<modal-success #successModal>
+</modal-success>
+<!-- errorModal -->
+<modal-error #errorModal>
+</modal-error>

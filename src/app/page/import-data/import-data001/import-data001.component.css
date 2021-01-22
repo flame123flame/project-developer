@@ -1,0 +1,34 @@
+.card:d1 {
+    background-color: #0496da;
+}
+
+a.head-card:hover h6 {
+    color: #B3BBBD;
+}
+
+a.head-card:hover .card {
+    /* background-color:#0496da !important; */
+    background: linear-gradient(to top, #B3BBBD, #B3BBBD) !important;
+    border: 1px solid #8ec7e4;
+}
+
+.colors {
+    color: #838789;
+    font-size: 50px;
+}
+
+.fa-check-square-o {
+    color: #2c93d1;
+}
+
+.fa-file-o {
+    color: #2c93d1;
+}
+
+.textSize {
+    font-size: 14px !important;
+}
+
+.cabak {
+    background-color: #0496da;
+}

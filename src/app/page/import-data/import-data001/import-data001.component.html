@@ -1,0 +1,153 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-3" *ngFor="let item of listMenu;let index = index" (click)="clickmenu(index)">
+        <div class="row-2">
+            <a class="head-card">
+                <div class="card" *ngIf="item.active == true" style="background-color:#B3BBBD;color: #000;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center" style="margin-top: 16px; margin-bottom: 12px;">
+                                <div class="row">
+                                    <div class="col-3  ">
+                                        <img src="./../../../assets/img/import-from-excel-512.png" style="    width: 100%;">
+                                    </div>
+                                    <div class="col">
+                                        <div class="row"> <span class="caret mr-4">{{item.menu}}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" *ngIf="!item.active == true">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center" style="margin-top: 16px; margin-bottom: 12px;">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img src="./../../../assets/img/import-from-excel-512.png" style="    width: 100%;">
+                                    </div>
+                                    <div class="col">
+                                        <div class="row"> <span class="caret mr-4">{{item.menu}}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="row-2">
+            <card-update textHeader="อัพเดตข้อมูลจากระบบงานรายได้ล่าสุด" [date]="datenow"></card-update>
+          
+        </div>
+    </div>
+</div>
+&nbsp;
+
+<div class="row">
+    <div class="col">
+        <div class="card" style="height: 28rem;">
+            <div class="card-header">
+                {{ textH }}
+            </div>
+            <div class="card-body">
+
+                <!-- นำเข้าข้อมูลเปรียบเทียบรายได้ภาษีสรรพสามิต -->
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#test" routerLink="/import/importdata003" class="head-card" *ngIf="checkButton01">
+
+                            <div class=" card shadow" style="background-color:#daf1f9;">
+                                <div class="card-body text-center">
+                                    <span class="caret"> รายงานรายได้ภาษีจากระบบรายได้</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#test" routerLink="/import/importdata007" class="head-card" *ngIf="checkButton01">
+
+                            <div class=" card shadow" style="background-color:#daf1f9;">
+                                <div class="card-body text-center">
+                                    <span class="caret">รายงานรายได้ภาษี</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- นำเข้าข้อมูลเปรียบเทียบรายได้กองทุนและนำส่งกองทุน -->
+
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#test" routerLink="/import/importdata004" class="head-card" *ngIf="checkButton">
+                            <div class=" card shadow" style="background-color:#daf1f9;">
+                                <div class="card-body text-center">
+                                    <span class="caret">รายงานแสดงการเคลื่อนไหวเงินฝากกระทรวงการคลัง</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#test" routerLink="/import/importdata005" class="head-card" *ngIf="checkButton">
+
+                            <div class=" card shadow" style="background-color:#daf1f9;">
+                                <div class="card-body text-center">
+                                    <span class="caret">พักเงินฝากธนาคารของคลัง</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <a href="#test" routerLink="/import/importdata006" class="head-card" *ngIf="checkButton">
+                            <div class=" card shadow" style="background-color:#daf1f9;">
+                                <div class="card-body text-center">
+                                    <span class="caret">เงินรับฝากอื่น</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                รายการอัพเดตเอกสาร
+            </div>
+            <div class="card-body">
+                <div class="row ">
+                    <div class="col-12">
+                        <table class="table table-striped table-sm table-bordered " id="datatable">
+                            <thead>
+                                <tr class="text-center table-active">
+                                    <th>ลำดับ</th>
+                                    <th>ชื่อรายการ</th>
+                                    <th>วันที่</th>
+                                    <th>เวลา</th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

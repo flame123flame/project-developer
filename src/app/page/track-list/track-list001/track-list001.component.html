@@ -1,0 +1,211 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<!-- <div class="row">
+    <div class="col">
+        <div class="card">
+            อัพเดตรายการข้อมูลรายงานแสดงการเคลื่อนไหวเงินฝากกระทรวงการคลังล่าสุด
+            วันที่ 7 เดือน กรกฎาคม ปี 2563 เวลา 05.50
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            อัพเดตรายการข้อมูลข้อมูลพักเงินฝากธนาคารของคลังล่าสุด
+            วันที่ 7 เดือน กรกฎาคม ปี 2563 เวลา 05.50
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            อัพเดตรายการข้อมูลรับเงินฝากอื่นล่าสุด
+            วันที่ 7 เดือน กรกฎาคม ปี 2563 เวลา 05.50
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            อัพเดตข้อมูลจากระบบงานรายได้ล่าสุด
+            วันที่ 7 เดือน กรกฎาคม ปี 2563 เวลา 05.50
+        </div>
+    </div>
+
+</div> -->
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-blue shadow-sm  bg-white rounded" style="padding-bottom: 47px;">
+                <div class="inner">
+                    <h4>วันที่ 7 เดือน กรกฎาคม ปี 2563 </h4>
+                    <h5>เวลา 09.50 น. </h5>
+                    <p> อัพเดตรายการข้อมูลแสดงรายได้ภาษีล่าสุด </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-repeat" aria-hidden="true"></i>
+                </div>
+                <!-- <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a> -->
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-green shadow-sm  bg-white rounded" style="padding-bottom: 47px;">
+                <div class="inner">
+                    <h4>วันที่ 7 เดือน กรกฎาคม ปี 2563 </h4>
+                    <h5>เวลา 03.50 น. </h5>
+                    <p> อัพเดตข้อมูลจากระบบงานรายได้ล่าสุด</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-repeat" aria-hidden="true"></i>
+                </div>
+                <!-- <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a> -->
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header">
+                รายการหน่วยงานที่มีผลต่างค้างรายการที่ตรวจสอบ
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-sm table-bordered ">
+                    <thead>
+                        <tr class="text-center">
+                            <th>รหัสหน่วยเบิกจ่าย</th>
+                            <th>ชื่อหน่วยงาน</th>
+                            <th>ปีสิ้นสุดวันที่</th>
+                            <th>ผลต่างรวมค้างรายการ</th>
+                            <th>ติดตาม</th>
+                            <th>จัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">0300600032</td>
+                            <td class="text-left">สำนักงานสรรพสามิตพื้นที่ชัยนาท</td>
+                            <td class="text-center">30 กันยายน 2563</td>
+                            <td class="text-right" style="color: red;">1.12</td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/tracklist/tracklist001status">
+                                        ติดตาม
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/compare/compareincome001">
+                                        <i class="fa fa-search" aria-hidden="true"></i> ตรวจสอบ
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">0300600293</td>
+                            <td class="text-left">สำนักงานสรรพสามิตพื้นที่กรุงเทพมหานคร 1</td>
+                            <td class="text-center">30 กันยายน 2562</td>
+                            <td class="text-right" style="color: red;">2.65</td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/tracklist/tracklist001status">
+                                        ติดตาม
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/compare/compareincome001">
+                                        <i class="fa fa-search" aria-hidden="true"></i> ตรวจสอบ
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">0300600270</td>
+                            <td class="text-left">สำนักงานสรรพสามิตพื้นที่ สตูล</td>
+                            <td class="text-center">30 กันยายน 2563</td>
+                            <td class="text-right" style="color: red;">2.32</td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/tracklist/tracklist001status">
+                                        ติดตาม
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/compare/compareincome001">
+                                        <i class="fa fa-search" aria-hidden="true"></i> ตรวจสอบ
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">0300600270</td>
+                            <td class="text-left">สำนักงานสรรพสามิตพื้นที่ สตูล</td>
+                            <td class="text-center">30 กันยายน 2562</td>
+                            <td class="text-right" style="color: red;">2.00</td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/tracklist/tracklist001status">
+                                        ติดตาม
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/compare/compareincome001">
+                                        <i class="fa fa-search" aria-hidden="true"></i> ตรวจสอบ
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">0300600270</td>
+                            <td class="text-left">สำนักงานสรรพสามิตพื้นที่ สตูล</td>
+                            <td class="text-center">30 กันยายน 2561</td>
+                            <td class="text-right" style="color: red;">2.12</td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/tracklist/tracklist001status">
+                                        ติดตาม
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div>
+                                    <button type="button" class="btn btn-info btn-sm" routerLink="/compare/compareincome001">
+                                        <i class="fa fa-search" aria-hidden="true"></i> ตรวจสอบ
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header">
+                เมนู
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <!-- <div class="card">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    กระทบยอดรายได้ภาษีสรรพสามิต
+                                </div>
+                            </div>
+                        </div> -->
+                        <button type="button" class="btn btn-primary btn-lg sizecus" routerLink="/compare/compareincome001">กระทบยอดรายได้ภาษีสรรพสามิต</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

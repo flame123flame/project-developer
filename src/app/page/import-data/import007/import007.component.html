@@ -1,0 +1,101 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-7">
+        <div class="card" style="height: 12rem;">
+            <div class="card-header">
+                นำเข้าข้อมูลรายงานแสดงรายได้ภาษี
+            </div>
+            <div class="card-body">
+
+                <div class="form-group row text-right">
+                    <label class="col-2 col-form-label">
+                        วันที่เอกสาร </label>
+                    <div class="col-sm-6">
+                        <input-calendar (changeDate)="dateChange($event)" [default]="false" #calendarStart>
+                        </input-calendar>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 text-right mt-1">
+                        <label>อัปโหลดเอกสาร</label>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="custom-file">
+                            <input type="file" ref="file" name="file" #inpFileUpload (change)="onChangeUpload($event)"
+                                accept=".xlsx , .xls ,.csv" class="custom-file-input" id="customFile">
+                            <label *ngIf="filesName == null" class="custom-file-label  form-control-sm"
+                                for="validatedCustomFile">เลือกไฟล์...</label>
+                            <label *ngIf="filesName != null" class="custom-file-label"
+                                for="customFile">{{filesName}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-primary btn-sm" [disabled]="isBtn||isDate"
+                            (click)="uploadExcelGF()">
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                            อัพโหลด
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="row-2">
+            <card-update textHeader="อัพเดตข้อมูลจากระบบงานรายได้ล่าสุด" [date]="date"></card-update>
+        </div>
+    </div>
+
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                รายงานแสดงรายได้ภาษี
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="datatableIncome" class="table table-striped table-sm table-bordered display nowrap">
+                        <thead>
+                            <tr class="table-active">
+                                <th class="text-center">บัญชี</th>
+                                <th class="text-center">การกำหนด</th>
+                                <th class="text-center">หน่วย บ/จ</th>
+                                <th class="text-center">ศ.ต้นทุน</th>
+                                <th class="text-center">รหัส</th>
+                                <th class="text-center">ปี</th>
+                                <th class="text-center">งวด</th>
+                                <th class="text-center">Post Date</th>
+                                <th class="text-center">ว/ท เอกสาร</th>
+                                <th class="text-center">เลขเอกสาร</th>
+                                <th class="text-center">Ref.Key</th>
+                                <th class="text-center">บ/ชเงินฝาก</th>
+                                <th class="text-center">ประเภท</th>
+                                <th class="text-center">การอ้างอิง</th>
+                                <th class="text-center">PK</th>
+                                <th class="text-center">จำนวนเงินในสกุลในปท.</th>
+                                <th class="text-center">หมวดพัสดุ</th>
+                                <th class="text-center">Tr.Prt</th>
+                                <th class="text-center">ข้อความ</th>
+                                <th class="text-center">คีย์การอ้างอิง 3</th>
+                                <th class="text-center">วันคิดค่า</th>
+                                <th class="text-center">แหล่งของเงิน</th>
+                                <th class="text-center">รหัสงปม.</th>
+
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- alertModal -->
+<modal-alert body="อัพโหลดสำเร็จ" #alertModal>
+</modal-alert>

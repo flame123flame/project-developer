@@ -1,0 +1,5 @@
+<div style="text-align:center">
+  <div *ngFor="let item of collection.data | paginate: config">
+  </div>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</div>

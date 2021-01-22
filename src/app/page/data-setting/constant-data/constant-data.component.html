@@ -1,0 +1,62 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">รายการค่าคงที่</div>
+        <div class="card-body">
+    <form [formGroup]="formSearch">
+        <div class="row mt-2">
+
+
+
+            <div class="col text-center">
+                <div class="form-group row text-right">
+                    <label class="col-sm-4 col-form-label col-form-label-sm text-right">คีย์ค่าตั้งต้น  <a style="color: red;">*</a>:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control form-control-sm" formControlName="constantKey" id="colFormLabelSm" placeholder="กรอกข้อมูล">
+                    </div>
+                    <button-search (click)="getList()"></button-search>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-12 text-right">
+                <button-add [status]="isButtonSave" routerLink="/datasetting/constantdetails"></button-add>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <table id="datatable" class="table table-bordered table-striped table-sm" style="width:100%">
+                    <thead class="text-center ">
+                        <tr class="table-active">
+                            <th style="text-align: center!important">ลำดับที่</th>
+                            <th style="text-align: center!important">คีย์ค่าคงที่</th>
+                            <th style="text-align: center!important">คำอธิบายค่าคงที่</th>
+                            <th style="text-align: center!important">วันที่สร้าง</th>
+                            <th style="text-align: center!important">จัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- successModal -->
+<modal-success #successModal>
+</modal-success>
+<!-- errorModal -->
+<modal-error #errorModal>
+</modal-error>
+
+<modal-confirm #confirmModal (onConfirm)="onDel()">
+</modal-confirm>
