@@ -7,7 +7,7 @@ body {
 }
 
 .bg {
-    background: url("/assets/img/bg_new.jpg") no-repeat center center fixed;
+    background: url("/assets/img/background01.jpg") no-repeat center center fixed;
     background-size: cover;
     position: fixed;
     top: 0;
